@@ -7,18 +7,19 @@ import { userDataDefaultState } from '../services/shared/sharedData'
 import { ICustomDatabase, IUserDataFromStorage } from '../services/types/sharedTypes'
 import { setUserToSessionVal } from '../services/functions/sessionStorageFunctions'
 import { addNewUser, checkUserToExist, getOneUser, addNewCustomDatabase, findOneUserFromCustomDatabase } from '../services/functions/databaseHandler'
-import { setUserId, setUserRecipes, setUserIntakeHistory } from '../redux/slices/userDatabaseSlice'
+import useGetCustomData from '../services/hooks/useGetCustomData'
 
 export default function LogInPage():JSX.Element {
   const [userData, setUserData] = useState( userDataDefaultState )
   const dispatch = useCommonDispatch()
+  const { setId, setRecipes, setHistory } = useGetCustomData()
 
   const passThroughLogin = ():void => {
         const data : Promise<ICustomDatabase> = findOneUserFromCustomDatabase(userData.userName)
         data.then( (feedback:ICustomDatabase ) => {
-        dispatch(setUserId(feedback.id))
-        dispatch(setUserRecipes(feedback.customRecipes))
-        dispatch(setUserIntakeHistory(feedback.intakeHistory))
+        setId(feedback.id)
+        setHistory(feedback.intakeHistory)  
+        setRecipes(feedback.customRecipes)
         setUserToSessionVal(userData.userName)
         dispatch(setUserName(userData.userName))
         dispatch(setUserLogged(true))

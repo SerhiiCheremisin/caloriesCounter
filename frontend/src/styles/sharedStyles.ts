@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { appColors } from "./colors";
+import { Link } from "react-router-dom";
 
 export const AppForm = styled.form`
        display: flex;
@@ -36,3 +37,18 @@ export const AppButton = styled.button`
         background-color: ${appColors.active};
        }
 `
+export const SocialImage = styled.img`
+       width: 100px;
+       height: auto;
+       border-radius: 8px;
+       transition: transform 0.3s ease;
+       cursor: pointer;
+     
+       &:hover {
+         transform: scale(1.05);
+       }
+`
+export const ImageWrapperLink = styled(Link)`
+       display: inline-block;
+       text-decoration: none;
+  `

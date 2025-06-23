@@ -10,6 +10,7 @@ export interface IHiddenMenuStatus {
        isMenuHidden : boolean,
 }
 
+// need to make a better typing
 export interface IUserDatabase {
       id: number,
       customRecipes: [],
@@ -41,6 +42,14 @@ export interface IUserDataFromStorage {
        username:string,
        password: string
        id: number
+}
+
+export interface IImageLinkProps {
+  src: string,
+  alt?: string,
+  to?: string,
+  width?: string,
+  height?: string
 }
 
 export type userLogType = "new" | "old"
