@@ -1,16 +1,16 @@
-import { setUserId, setUserRecipes, setUserIntakeHistory  } from '../../redux/slices/userDatabaseSlice'
-import { useCommonDispatch } from './useCommonDispatch'
+import React from 'react'
+import { useCommonSelector } from './useCommonSelector'
+import { IUserDatabase } from '../types/sharedTypes'
+import { RootState } from '../../redux/store'
 
-export default function useGetCustomData() {
 
-const dispatch = useCommonDispatch()
-const setId = (id: number) => dispatch(setUserId(id))
-const setRecipes = (recipes: any[]) => dispatch(setUserRecipes(recipes))
-const setHistory = (history: any[]) => dispatch(setUserIntakeHistory(history))
-
+export default function useGetCustomData():IUserDatabase {  
+  const id = useCommonSelector( (state:RootState) => state.userDatabase.id)
+  const customRecipes = useCommonSelector( (state:RootState) => state.userDatabase.customRecipes)
+  const intakeHistory = useCommonSelector( (state:RootState) => state.userDatabase.intakeHistory)
   return {
-    setId,
-    setRecipes,
-    setHistory
+    id,
+    customRecipes,
+    intakeHistory
   }
 }

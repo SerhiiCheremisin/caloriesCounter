@@ -10,6 +10,13 @@ export interface IHiddenMenuStatus {
        isMenuHidden : boolean,
 }
 
+interface IMeal {
+          allFood: IDefaultFoodDatabase[], 
+          isMealHasChosen: boolean
+}
+
+export type combinedIntakeStateType = ISingleMeal & IMeal
+
 // need to make a better typing
 export interface IUserDatabase {
       id: number,
@@ -19,6 +26,18 @@ export interface IUserDatabase {
 
 export interface ICustomDatabase extends IUserDatabase {
      username: string
+}
+
+export interface ISingleFood {
+       dish: string,
+       proteins: string,
+       carbs: string,
+       fats: string
+}
+
+export interface ISingleMeal {
+       meal: string,
+       weight: string,
 }
 
 //other
@@ -54,3 +73,13 @@ export interface IImageLinkProps {
 
 export type userLogType = "new" | "old"
 
+
+export interface IDefaultFoodDatabase {
+       name_en: string,
+       name_ua: string,
+       proteins: number,
+       fats: number,
+       carbs: number,
+       kcal: number,
+       id: string | number
+}

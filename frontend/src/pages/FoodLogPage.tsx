@@ -1,9 +1,14 @@
 import React from 'react'
+//shared
+import { nowDateGenerator } from '../services/functions/sharedFunctions'
+//components
+import IntakeAdder from '../components/foodIntake/IntakeAdder'
 
-export default function FoodLogPage():JSX.Element {
+export default function FoodLogPage() {
   return (
-    <div>
-      <h1>FoodLogPage</h1>
-    </div>
+    <>
+      <h3>Today is : {nowDateGenerator()}</h3>
+      <IntakeAdder/>
+    </>
   )
 }

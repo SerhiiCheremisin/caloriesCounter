@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { appColors } from "./colors";
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,7 @@ export const AppForm = styled.form`
        padding: 15px;
        background: radial-gradient( ellipse at top right , ${appColors.second} , ${appColors.passive} , ${appColors.main} ) ;
        border-radius: 15px;
+       position: relative;
 
        input {
         width: 60%;
@@ -52,3 +53,18 @@ export const ImageWrapperLink = styled(Link)`
        display: inline-block;
        text-decoration: none;
   `
+
+const spin = keyframes`
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+`
+
+export const Spinner = styled.div`
+       border: 4px solid #f3f3f3; /* Light grey */
+       border-top: 4px solid #3498db; /* Blue */
+       border-radius: 50%;
+       width: 40px;
+       height: 40px;
+       animation: ${spin} 1s linear infinite;
+       margin: auto;
+`

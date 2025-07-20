@@ -7,19 +7,27 @@ import { userDataDefaultState } from '../services/shared/sharedData'
 import { ICustomDatabase, IUserDataFromStorage } from '../services/types/sharedTypes'
 import { setUserToSessionVal } from '../services/functions/sessionStorageFunctions'
 import { addNewUser, checkUserToExist, getOneUser, addNewCustomDatabase, findOneUserFromCustomDatabase } from '../services/functions/databaseHandler'
-import useGetCustomData from '../services/hooks/useGetCustomData'
+import useSetCustomData from '../services/hooks/useSetCustomData'
 
 export default function LogInPage():JSX.Element {
   const [userData, setUserData] = useState( userDataDefaultState )
   const dispatch = useCommonDispatch()
-  const { setId, setRecipes, setHistory } = useGetCustomData()
+  const { setId, setRecipes, setHistory } = useSetCustomData()
 
   const passThroughLogin = ():void => {
         const data : Promise<ICustomDatabase> = findOneUserFromCustomDatabase(userData.userName)
         data.then( (feedback:ICustomDatabase ) => {
         setId(feedback.id)
-        setHistory(feedback.intakeHistory)  
-        setRecipes(feedback.customRecipes)
+        if (!!feedback.intakeHistory) {
+        setHistory(feedback.intakeHistory)     
+        } else {
+         setHistory([]) 
+        }
+        if (!!feedback.customRecipes) {
+          setRecipes(feedback.customRecipes)
+        } else {
+          setRecipes([])
+        }
         setUserToSessionVal(userData.userName)
         dispatch(setUserName(userData.userName))
         dispatch(setUserLogged(true))

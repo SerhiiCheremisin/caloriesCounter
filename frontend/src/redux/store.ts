@@ -4,13 +4,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './slices/userSlice'
 import hiddenMenuSlice from './slices/hiddenMenuSlice'
 import userDatabaseSlice from './slices/userDatabaseSlice'
-
+import foodIntake from './slices/foodIntakes'
 
 const store = configureStore({
     reducer: {
       user: userSlice,
       hiddenNavigation: hiddenMenuSlice,
-      userDatabase: userDatabaseSlice
+      userDatabase: userDatabaseSlice,
+      foodIntake: foodIntake
     }
 })
 
