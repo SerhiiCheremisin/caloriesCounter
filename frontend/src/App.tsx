@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom"
-import useAuthState from "./services/hooks/useAuthState"
+import { useAuthState } from "./services/hooks/useAuthState"
 import { appRoutes } from "./services/shared/routes"
 import { useEffect } from "react"
 import { appSessionChecker } from "./services/functions/sessionStorageFunctions" 
@@ -17,7 +17,7 @@ function App() {
       const data = await appSessionChecker()
       if (data != null) {
         dispatch(setUserLogged(true))
-        dispatch(setUserName(data))
+        dispatch(setUserName(data.userName))
       }
     } catch (error) {
       console.error("Session check failed:", error)

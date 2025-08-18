@@ -6,11 +6,13 @@ import { RootState } from '../../redux/store'
 
 export default function useGetCustomData():IUserDatabase {  
   const id = useCommonSelector( (state:RootState) => state.userDatabase.id)
-  const customRecipes = useCommonSelector( (state:RootState) => state.userDatabase.customRecipes)
-  const intakeHistory = useCommonSelector( (state:RootState) => state.userDatabase.intakeHistory)
+  const calories_limit = useCommonSelector( (state:RootState) => state.userDatabase.calories_limit)
+  const custom_recipes = useCommonSelector( (state:RootState) => state.userDatabase.custom_recipes)
+  const intake_history = useCommonSelector( (state:RootState) => state.userDatabase.intake_history)
   return {
     id,
-    customRecipes,
-    intakeHistory
+    calories_limit,
+    custom_recipes,
+    intake_history,
   }
 }

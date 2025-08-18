@@ -1,4 +1,4 @@
-import { IUserDataFromStorage, ICustomDatabase } from "../types/sharedTypes";
+import { IUserDataFromStorage, ICustomDatabase, IEatenMeal } from "../types/sharedTypes";
 import { userRoute, databaseRoute } from "../shared/sharedData";
 import axios from 'axios';
 
@@ -88,5 +88,19 @@ export const findOneUserFromCustomDatabase = async (userName: string): Promise<I
        } catch (error) {
         console.error('Failed get the data from the database:', error)
         throw error
+       }
+}
+
+export const sendOneNewEatenMeal = async (username:string, meal:IEatenMeal):Promise<IEatenMeal> => {
+       try {
+          const request = await findOneUserFromCustomDatabase(username)
+          const getId = await getOneUser(username)
+          const newDataToSend = { ...request, intake_history: [...request.intake_history, meal] }
+          const updateData = await axios.put(`${databaseRoute}/${getId.id}`, newDataToSend)
+          return updateData.data   
+       }
+       catch (error) {
+       console.error('Failed send data to the database:', error)
+       throw error
        }
 }

@@ -3,8 +3,9 @@ import { IUserDatabase } from "../../services/types/sharedTypes";
 
 const initialState: IUserDatabase = {
       id: 0,
-      customRecipes: [],
-      intakeHistory: []
+      calories_limit: 0,
+      custom_recipes: [],
+      intake_history: []
 }
 
 const userDatabaseSlice = createSlice({
@@ -15,14 +16,17 @@ const userDatabaseSlice = createSlice({
            state.id = action.payload
         },
         setUserRecipes (state, action) {
-           state.customRecipes = action.payload
+           state.custom_recipes = action.payload
         },
         setUserIntakeHistory (state, action) {
-           state.intakeHistory = action.payload
+           state.intake_history = action.payload
+        },
+        setUserCaloriesLimit (state, action) {
+           state.calories_limit = action.payload
         }
     }
 })
 
-export const { setUserId, setUserRecipes, setUserIntakeHistory } = userDatabaseSlice.actions;
+export const { setUserId, setUserRecipes, setUserIntakeHistory, setUserCaloriesLimit } = userDatabaseSlice.actions;
 
 export default userDatabaseSlice.reducer;

@@ -18,13 +18,13 @@ export default function LogInPage():JSX.Element {
         const data : Promise<ICustomDatabase> = findOneUserFromCustomDatabase(userData.userName)
         data.then( (feedback:ICustomDatabase ) => {
         setId(feedback.id)
-        if (!!feedback.intakeHistory) {
-        setHistory(feedback.intakeHistory)     
+        if (!!feedback.intake_history) {
+        setHistory(feedback.intake_history)     
         } else {
          setHistory([]) 
         }
-        if (!!feedback.customRecipes) {
-          setRecipes(feedback.customRecipes)
+        if (!!feedback.custom_recipes) {
+          setRecipes(feedback.custom_recipes)
         } else {
           setRecipes([])
         }

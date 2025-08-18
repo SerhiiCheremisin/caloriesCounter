@@ -20,12 +20,14 @@ export type combinedIntakeStateType = ISingleMeal & IMeal
 // need to make a better typing
 export interface IUserDatabase {
       id: number,
-      customRecipes: [],
-      intakeHistory: []
+      calories_limit: number,
+      custom_recipes: [],
+      intake_history: IEatenMeal[]
 }
 
 export interface ICustomDatabase extends IUserDatabase {
      username: string
+     date: string
 }
 
 export interface ISingleFood {
@@ -73,13 +75,18 @@ export interface IImageLinkProps {
 
 export type userLogType = "new" | "old"
 
-
-export interface IDefaultFoodDatabase {
-       name_en: string,
-       name_ua: string,
+interface INutrition {
        proteins: number,
        fats: number,
        carbs: number,
        kcal: number,
+}
+export interface IDefaultFoodDatabase extends INutrition {
+       name_en: string,
+       name_ua: string,
        id: string | number
+}
+
+export interface IEatenMeal extends ISingleMeal, INutrition {
+       date: string
 }

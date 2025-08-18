@@ -2,6 +2,87 @@
   {
     "id": 1,
     "username": "SerhiiC",
+    "calories_limit": 1500,
+    "custom_recipes": [],
+    "intake_history": [
+      {
+        "carbs": 1.1,
+        "date": "Tue Aug 05 2025 16:47:47 GMT+0200 (Central European Summer Time)",
+        "fats": 11,
+        "kcal": 155.4,
+        "meal": "Boiled Egg",
+        "proteins": 13,
+        "weight": "100"
+      },
+      {
+        "carbs": 1.1,
+        "date": "Tue Aug 05 2025 16:48:09 GMT+0200 (Central European Summer Time)",
+        "fats": 11,
+        "kcal": 233.1,
+        "meal": "Boiled Egg",
+        "proteins": 13,
+        "weight": "150"
+      },
+      {
+        "carbs": 3.9,
+        "date": "Sat Aug 09 2025 14:16:47 GMT+0200 (Central European Summer Time)",
+        "fats": 0.5,
+        "kcal": 515.59,
+        "meal": "Cottage Cheese (low fat)",
+        "proteins": 18.2,
+        "weight": "555"
+      },
+      {
+        "carbs": 1.1,
+        "date": "Sat Aug 09 2025 14:23:08 GMT+0200 (Central European Summer Time)",
+        "fats": 11,
+        "kcal": 51.28,
+        "meal": "Boiled Egg",
+        "proteins": 13,
+        "weight": "33"
+      },
+      {
+        "carbs": 28.8,
+        "date": "Sat Aug 09 2025 14:29:09 GMT+0200 (Central European Summer Time)",
+        "fats": 0.3,
+        "kcal": 167.83,
+        "meal": "Rice (boiled)",
+        "proteins": 2.8,
+        "weight": "130"
+      },
+      {
+        "carbs": 12.2,
+        "date": "Mon Aug 18 2025 16:33:44 GMT+0200 (Central European Summer Time)",
+        "fats": 1.5,
+        "kcal": 248.71,
+        "meal": "Oatmeal",
+        "proteins": 2.5,
+        "weight": "344"
+      },
+      {
+        "carbs": 0.4,
+        "date": "Mon Aug 18 2025 16:33:54 GMT+0200 (Central European Summer Time)",
+        "fats": 14.3,
+        "kcal": 276.84,
+        "meal": "Fried Salmon",
+        "proteins": 25.1,
+        "weight": "120"
+      },
+      {
+        "meal": "Banana",
+        "weight": "1500",
+        "proteins": 1.1,
+        "fats": 0.5,
+        "carbs": 23.2,
+        "kcal": 1525.5,
+        "date": "Mon Aug 18 2025 16:40:23 GMT+0200 (Central European Summer Time)"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "username": "test",
+    "calories_limit": 1500,
     "custom_recipes": [],
     "intake_history": []
   }

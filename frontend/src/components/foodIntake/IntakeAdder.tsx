@@ -13,17 +13,17 @@ import FoodList from './FoodList'
 
 export default function IntakeAdder() {
 
- const { customRecipes } =  useGetCustomData()
+ const { custom_recipes } =  useGetCustomData()
  const { currentMeal, allFood, setFood, isMealBeenChosen } = useIntake()
  
  const setFoods = ():void => {
-  const uniqueFoods = uniqueFoodSort([...defaultFood, ...customRecipes])
+  const uniqueFoods = uniqueFoodSort([...defaultFood, ...custom_recipes])
   setFood(uniqueFoods)
 }
 
  useEffect( () => {
     setFoods()
- }, [customRecipes])
+ }, [custom_recipes])
  
 const filteredFoods: IDefaultFoodDatabase[] = foodsFilter(allFood, currentMeal ) 
 const foodsRender = (): JSX.Element => {
