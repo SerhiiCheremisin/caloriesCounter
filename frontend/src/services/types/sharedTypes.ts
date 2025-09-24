@@ -26,7 +26,7 @@ export interface IUserDatabase {
 }
 
 export interface ICustomDatabase extends IUserDatabase {
-     username: string
+     username: string,
      date: string
 }
 
