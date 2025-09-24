@@ -1,8 +1,8 @@
-import React, { JSX, useEffect } from 'react'
+import React, { JSX, useEffect, useState } from 'react'
 import { AppButton } from '../styles/sharedStyles' 
 import { AboutList } from '../styles/about'
 
-import { findOneUserFromCustomDatabase } from '../services/functions/databaseHandler'
+import { findOneUserFromCustomDatabase , sendAnewLimit  } from '../services/functions/databaseHandler'
 import { todayHasEaten } from '../services/functions/sharedFunctions'
 
 import { useAuthState } from '../services/hooks/useAuthState'
@@ -12,7 +12,9 @@ import useSetCustomData from '../services/hooks/useSetCustomData'
 export default function AboutPage():JSX.Element {
   const { userName } = useAuthState()
   const { calories_limit : limit, intake_history: history  } = useGetCustomData()
-  const { setAllCustomData } = useSetCustomData()
+  const { setAllCustomData, setLimit } = useSetCustomData()
+  const [isLimitShouldBeChanged, setIsLimitShouldBeChanged] = useState(false)
+  const [newLimit, setNewLimit] = useState("")
  
   useEffect( () => {
         findOneUserFromCustomDatabase(userName)
@@ -21,10 +23,21 @@ export default function AboutPage():JSX.Element {
         })
   }, [])
 
+  const limitChangeHandler = ():void => {
+        sendAnewLimit(userName, (Number(newLimit)))
+        .then( (data) => {
+          setNewLimit("")
+          setIsLimitShouldBeChanged(false)
+          setLimit(data.calories_limit)
+        })
+  }
+
   return (
     <AboutList>
       <li>{`Hello ${userName}`}</li>
-      <li>{`Daily calories limitation : ${limit}`}<AppButton>Change the limit</AppButton></li>
+      <li>{`Daily calories limitation : ${limit}`}<AppButton onClick={() => setIsLimitShouldBeChanged(!isLimitShouldBeChanged)}>Change the limit</AppButton></li>
+      { isLimitShouldBeChanged && <li><input value={newLimit} onChange={(e) => setNewLimit(e.target.value.replace(/[^0-9]/g, "")) }>
+                                    </input><AppButton onClick={() => limitChangeHandler()}>Set</AppButton></li> }
       <li>{`Have eaten today : ${todayHasEaten(history)}`}</li>
     </AboutList>
   )

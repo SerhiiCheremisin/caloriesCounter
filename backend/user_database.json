@@ -2,7 +2,7 @@
   {
     "id": 1,
     "username": "SerhiiC",
-    "calories_limit": 1500,
+    "calories_limit": 1800,
     "custom_recipes": [],
     "intake_history": [
       {
@@ -69,13 +69,49 @@
         "weight": "120"
       },
       {
-        "meal": "Banana",
-        "weight": "1500",
-        "proteins": 1.1,
-        "fats": 0.5,
         "carbs": 23.2,
+        "date": "Mon Aug 18 2025 16:40:23 GMT+0200 (Central European Summer Time)",
+        "fats": 0.5,
         "kcal": 1525.5,
-        "date": "Mon Aug 18 2025 16:40:23 GMT+0200 (Central European Summer Time)"
+        "meal": "Banana",
+        "proteins": 1.1,
+        "weight": "1500"
+      },
+      {
+        "carbs": 14,
+        "date": "Mon Sep 22 2025 18:43:06 GMT+0200 (Central European Summer Time)",
+        "fats": 0.3,
+        "kcal": 135.36,
+        "meal": "Apple",
+        "proteins": 0.5,
+        "weight": "223"
+      },
+      {
+        "carbs": 12.2,
+        "date": "Mon Sep 22 2025 18:43:20 GMT+0200 (Central European Summer Time)",
+        "fats": 1.5,
+        "kcal": 289.2,
+        "meal": "Oatmeal",
+        "proteins": 2.5,
+        "weight": "400"
+      },
+      {
+        "carbs": 28.8,
+        "date": "Wed Sep 24 2025 13:32:39 GMT+0200 (Central European Summer Time)",
+        "fats": 0.3,
+        "kcal": 645.5,
+        "meal": "Rice (boiled)",
+        "proteins": 2.8,
+        "weight": "500"
+      },
+      {
+        "carbs": 17.6,
+        "date": "Wed Sep 24 2025 13:32:48 GMT+0200 (Central European Summer Time)",
+        "fats": 0.4,
+        "kcal": 364.08,
+        "meal": "Boiled Potato",
+        "proteins": 2,
+        "weight": "444"
       }
     ]
   },

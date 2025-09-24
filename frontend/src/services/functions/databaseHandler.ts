@@ -104,3 +104,16 @@ export const sendOneNewEatenMeal = async (username:string, meal:IEatenMeal):Prom
        throw error
        }
 }
+
+export const sendAnewLimit = async (userName:string, limit:number):Promise<any> => {
+       try {
+         const userId = await getOneUser(userName)
+         const userData = await findOneUserFromCustomDatabase(userName)
+         const newData = { ...userData, calories_limit: limit }
+         const updateLimit = await axios.put(`${databaseRoute}/${userId.id}`, newData )
+         return updateLimit.data
+       } 
+       catch (error) {
+         console.error('Failed send data to the database:', error)
+       } 
+}
