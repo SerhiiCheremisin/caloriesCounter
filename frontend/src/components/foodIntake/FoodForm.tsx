@@ -4,11 +4,17 @@ import { useIntake } from '../../services/hooks/useIntake'
 import { sendOneNewEatenMeal } from '../../services/functions/databaseHandler'
 import { singleMealCalories } from '../../services/functions/sharedFunctions'
 import { useAuthState } from '../../services/hooks/useAuthState'
+import useSetCustomData from '../../services/hooks/useSetCustomData'
+import useGetCustomData from '../../services/hooks/useGetCustomData'
+import { IEatenMeal } from '../../services/types/sharedTypes'
+
 
 export default function FoodForm() {
   
   const { currentMeal, setMealName, currentWeight, setWeight, setIsMealChosen, allFood } = useIntake()
   const { userName } = useAuthState()
+  const { setHistory } = useSetCustomData()
+  const { intake_history } =  useGetCustomData()
   
   const keyDownHandler = (e:React.KeyboardEvent<HTMLInputElement>):void => {
         if (e.key === 'Backspace') {
@@ -28,7 +34,7 @@ export default function FoodForm() {
         const mealToSend = [...allFood].filter( (e) => e.name_en.toLowerCase() === currentMeal.toLowerCase() )
         const selectedMeal = mealToSend[0]
         const kcal = singleMealCalories(selectedMeal, currentWeight)
-        sendOneNewEatenMeal(userName, {
+        const eatenMeal: IEatenMeal =  {
           meal: currentMeal,
           weight: currentWeight,
           proteins: selectedMeal.proteins,
@@ -36,11 +42,12 @@ export default function FoodForm() {
           carbs: selectedMeal.carbs,
           kcal: kcal,
           date: String(new Date)
-        })
+        }
+        sendOneNewEatenMeal(userName, eatenMeal )
         .then( (data) => {
           setMealName('')
           setWeight('')
-          //setFood()
+          setHistory([...intake_history, ...[eatenMeal]])
           return
         })
   }   

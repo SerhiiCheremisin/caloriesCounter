@@ -1,12 +1,12 @@
 import React, { JSX, useEffect, useState } from 'react'
-import useGetCustomData from '../../services/hooks/useGetCustomData'
 //shared
 import { defaultFood } from '../../services/shared/defaultFoodDatabase'
 import { Spinner } from '../../styles/sharedStyles'
-import { defaultFoodState } from '../../services/shared/sharedData'
 import { foodsFilter, uniqueFoodSort } from '../../services/functions/sharedFunctions'
-import { IDefaultFoodDatabase, ISingleFood, ISingleMeal } from '../../services/types/sharedTypes'
+import { IDefaultFoodDatabase } from '../../services/types/sharedTypes'
 import { useIntake } from '../../services/hooks/useIntake'
+//hooks
+import useGetCustomData from '../../services/hooks/useGetCustomData'
 //components
 import FoodForm from './FoodForm'
 import FoodList from './FoodList'

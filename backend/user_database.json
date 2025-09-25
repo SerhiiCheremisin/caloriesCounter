@@ -132,13 +132,22 @@
         "weight": "122"
       },
       {
-        "meal": "Fried Salmon",
-        "weight": "400",
-        "proteins": 25.1,
-        "fats": 14.3,
         "carbs": 0.4,
+        "date": "Thu Sep 25 2025 16:26:08 GMT+0200 (Central European Summer Time)",
+        "fats": 14.3,
         "kcal": 922.8,
-        "date": "Thu Sep 25 2025 16:26:08 GMT+0200 (Central European Summer Time)"
+        "meal": "Fried Salmon",
+        "proteins": 25.1,
+        "weight": "400"
+      },
+      {
+        "meal": "Rice (boiled)",
+        "weight": "300",
+        "proteins": 2.8,
+        "fats": 0.3,
+        "carbs": 28.8,
+        "kcal": 387.3,
+        "date": "Thu Sep 25 2025 16:41:53 GMT+0200 (Central European Summer Time)"
       }
     ]
   },
