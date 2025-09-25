@@ -40,6 +40,7 @@ export default function FoodForm() {
         .then( (data) => {
           setMealName('')
           setWeight('')
+          //setFood()
           return
         })
   }   
@@ -47,10 +48,10 @@ export default function FoodForm() {
   return (
        <AppForm onSubmit={(e) => formSubmitHandler(e)} style={{height: '400px'}}>
          <label htmlFor="meal">What are you eating</label>
-         <input required value={currentMeal} id='meal' name='meal' type="text" 
+         <input autoComplete='off' required value={currentMeal} id='meal' name='meal' type="text" 
          onChange={(e) => setMealName(e.target.value)} onKeyDown={ (e) => keyDownHandler(e) } />
          <label htmlFor="weight">How much</label>
-         <input required value={currentWeight} id='weight' name='weight' type="text" onChange={(e) => {setWeight(e.target.value)}} />
+         <input autoComplete='off' required value={currentWeight} id='weight' name='weight' type="text" onChange={(e) => {setWeight(e.target.value)}} />
          <AppButton type='submit'>Add food intake</AppButton>
        </AppForm>
        
