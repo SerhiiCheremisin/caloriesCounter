@@ -74,6 +74,7 @@ export interface IImageLinkProps {
 }
 
 export type userLogType = "new" | "old"
+export type dataSendingType = "limit" | "customRecipes"
 
 interface INutrition {
        proteins: number,

@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import DishAdder from './DishAdder'
+//Styles
 import { HiddenFoodMenu } from '../../styles/foodIntake'
 import { AppButton } from '../../styles/sharedStyles'
+//Services
 import { IDefaultFoodDatabase } from '../../services/types/sharedTypes'
-import DishAdder from './DishAdder'
-import { useIntake } from '../../services/hooks/useIntake'
 import { foodsFilter } from '../../services/functions/sharedFunctions'
-
+import { useIntake } from '../../services/hooks/useIntake'
 
 export default function FoodList( { foods }: { foods: IDefaultFoodDatabase[] } ) {
 
@@ -18,7 +19,7 @@ export default function FoodList( { foods }: { foods: IDefaultFoodDatabase[] } )
         setIsMealChosen(true) 
   }
 
-    if(isDishNeededToBeAdd) { return( <DishAdder/> ) }
+    if(isDishNeededToBeAdd) { return( <DishAdder isWindowActive = { setIsDishNeededToBeAdded }/> ) }
     return (
     <HiddenFoodMenu>
      <ul>
@@ -34,7 +35,6 @@ export default function FoodList( { foods }: { foods: IDefaultFoodDatabase[] } )
       : 
        <AppButton onClick={() => setIsDishNeededToBeAdded(true)}>Chose the dish</AppButton> 
       }
-
      </ul>   
     </HiddenFoodMenu>
   )

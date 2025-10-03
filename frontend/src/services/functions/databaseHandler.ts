@@ -1,4 +1,4 @@
-import { IUserDataFromStorage, ICustomDatabase, IEatenMeal } from "../types/sharedTypes";
+import { IUserDataFromStorage, ICustomDatabase, IEatenMeal, dataSendingType } from "../types/sharedTypes";
 import { userRoute, databaseRoute } from "../shared/sharedData";
 import axios from 'axios';
 
@@ -105,13 +105,20 @@ export const sendOneNewEatenMeal = async (username:string, meal:IEatenMeal):Prom
        }
 }
 
-export const sendAnewLimit = async (userName:string, limit:number):Promise<any> => {
+export const changeCustomDatabase = async (userName:string, value:dataSendingType, dataToSend: any):Promise<any> => {
        try {
          const userId = await getOneUser(userName)
          const userData = await findOneUserFromCustomDatabase(userName)
-         const newData = { ...userData, calories_limit: limit }
-         const updateLimit = await axios.put(`${databaseRoute}/${userId.id}`, newData )
-         return updateLimit.data
+         let newData : any 
+         if (value === "limit") {
+            newData = { ...userData, calories_limit: Number(dataToSend) }
+         }
+         if (value === "customRecipes") {
+            //TODO: Add check the custom recipe to exist in DB           
+            newData = { ...userData, custom_recipes: [...userData.custom_recipes, ...[dataToSend]] } 
+         }
+        const updateLimit = await axios.put(`${databaseRoute}/${userId.id}`, newData )
+        return updateLimit.data
        } 
        catch (error) {
          console.error('Failed send data to the database:', error)

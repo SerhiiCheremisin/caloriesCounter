@@ -42,4 +42,8 @@ export const NewDishMenu = styled.div`
        position: absolute;
        left: 0;
        top: 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       
 `
