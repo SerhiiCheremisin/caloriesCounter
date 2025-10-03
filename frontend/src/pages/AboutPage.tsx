@@ -2,7 +2,7 @@ import React, { JSX, useEffect, useState } from 'react'
 import { AppButton } from '../styles/sharedStyles' 
 import { AboutList } from '../styles/about'
 
-import { findOneUserFromCustomDatabase , sendAnewLimit  } from '../services/functions/databaseHandler'
+import { findOneUserFromCustomDatabase , changeCustomDatabase  } from '../services/functions/databaseHandler'
 import { todayHasEaten } from '../services/functions/sharedFunctions'
 
 import { useAuthState } from '../services/hooks/useAuthState'
@@ -24,7 +24,7 @@ export default function AboutPage():JSX.Element {
   }, [])
 
   const limitChangeHandler = ():void => {
-        sendAnewLimit(userName, (Number(newLimit)))
+        changeCustomDatabase(userName, "limit" ,newLimit)
         .then( (data) => {
           setNewLimit("")
           setIsLimitShouldBeChanged(false)

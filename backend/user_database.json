@@ -2,7 +2,7 @@
   {
     "id": 1,
     "username": "SerhiiC",
-    "calories_limit": 1800,
+    "calories_limit": 1850,
     "custom_recipes": [],
     "intake_history": [
       {
@@ -141,13 +141,13 @@
         "weight": "400"
       },
       {
-        "meal": "Rice (boiled)",
-        "weight": "300",
-        "proteins": 2.8,
-        "fats": 0.3,
         "carbs": 28.8,
+        "date": "Thu Sep 25 2025 16:41:53 GMT+0200 (Central European Summer Time)",
+        "fats": 0.3,
         "kcal": 387.3,
-        "date": "Thu Sep 25 2025 16:41:53 GMT+0200 (Central European Summer Time)"
+        "meal": "Rice (boiled)",
+        "proteins": 2.8,
+        "weight": "300"
       }
     ]
   },
